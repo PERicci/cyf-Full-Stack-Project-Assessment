@@ -4,7 +4,7 @@ const router = Router();
 
 router.get("/videos", async (_, res) => {
 	try {
-		const result = await db.query("SELECT * FROM videos");
+		const result = await db.query("SELECT * FROM videos ORDER BY id");
 
 		const videos = result.rows.map((video) => {
 			return {
