@@ -68,6 +68,7 @@ h1 {
 	background-color: #dee2ff;
 	font-size: 1.5rem;
 	border: none;
+	cursor: pointer;
 }
 .delete-video button:hover {
 	background-color: #a9b1f1;
