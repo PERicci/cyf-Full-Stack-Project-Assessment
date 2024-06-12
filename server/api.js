@@ -12,6 +12,7 @@ router.get("/videos", async (_, res) => {
 				title: video.title,
 				url: video.src,
 				vote: video.vote,
+				postedAt: video.posted_at,
 			};
 		});
 
