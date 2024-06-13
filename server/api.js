@@ -1,4 +1,5 @@
 import { Router } from "express";
+import dayjs from "dayjs";
 import db from "./db.js";
 const router = Router();
 
@@ -7,12 +8,14 @@ router.get("/videos", async (_, res) => {
 		const result = await db.query("SELECT * FROM videos ORDER BY id");
 
 		const videos = result.rows.map((video) => {
+			const localPostedAt = dayjs(video.posted_at).format("DD-MM-YYYY, HH:mm:ss");
+
 			return {
 				id: video.id,
 				title: video.title,
 				url: video.src,
 				vote: video.vote,
-				postedAt: video.posted_at,
+				postedAt: localPostedAt,
 			};
 		});
 
